@@ -4,6 +4,14 @@ import requests
 from datetime import datetime
 from dotenv import load_dotenv
 import os
+import os
+from amadeus import Client, ResponseError
+import requests
+from datetime import datetime
+from dotenv import load_dotenv
+import os
+
+
 
 load_dotenv()  # טוען את קובץ .env
 
