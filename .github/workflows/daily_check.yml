@@ -1,0 +1,25 @@
+name: Daily Flight Check
+
+on:
+  schedule:
+    - cron: '0 12 * * *' # ירוץ כל יום ב-8 בבוקר
+  workflow_dispatch: # מאפשר הרצה ידנית לבדיקה
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Install dependencies
+        run: pip install amadeus requests
+      - name: Run script
+        run: python main.py
+        env:
+          # כאן מכניסים את המפתחות תחת Settings > Secrets ב-Github
+          AMADEUS_KEY: ${{ secrets.AMADEUS_KEY }}
+          ...
