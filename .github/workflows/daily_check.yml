@@ -2,8 +2,9 @@ name: Daily Flight Check
 
 on:
   schedule:
-    - cron: '0 10 * * *' # ירוץ ב-6 בבוקר UTC (שהם 8 בבוקר בישראל בשעון חורף)
-  workflow_dispatch: # מאפשר הרצה ידנית מכפתור ה-Actions ב-GitHub
+    - cron: '0 10 * * *' # ירוץ כל יום ב-12 בצהריים
+  workflow_dispatch: # מאפשר הרצה ידנית לבדיקה
+
 
 jobs:
   build:
