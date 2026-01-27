@@ -2,7 +2,7 @@ name: Daily Flight Check
 
 on:
   schedule:
-    - cron: '0 12 * * *' # ירוץ כל יום ב-8 בבוקר
+    - cron: '0 10 * * *' # ירוץ כל יום ב-12 בצהריים
   workflow_dispatch: # מאפשר הרצה ידנית לבדיקה
 
 jobs:
