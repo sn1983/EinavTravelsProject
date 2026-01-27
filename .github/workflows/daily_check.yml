@@ -5,20 +5,23 @@ on:
     - cron: '0 10 * * *' # ירוץ כל יום ב-12 בצהריים
   workflow_dispatch: # מאפשר הרצה ידנית לבדיקה
 
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: '3.9'
 
       - name: Install dependencies
-        run: pip install amadeus requests
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install amadeus requests python-dotenv
 
       - name: Run script
         env:
